@@ -6,7 +6,7 @@ import attacks.special.ShadowBall;
 import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.Type;
 
-public class Vullaby extends Pokemon {
+public class Vullaby extends Mandibuzz {
     Facade facade;
     public Vullaby(String name, int level){
         super(name, level);
