@@ -1,21 +1,29 @@
 import json
 from dicttoxml import dicttoxml
 import configparser
-
-data = None
-
-with open("project/usingstdlibs/input.json", 'r', encoding="utf-8") as f:
-    data = json.loads("".join(f.readlines()))
-
-xml = dicttoxml(data, attr_type=True)
-
-with open("project/usingstdlibs/output.xml", 'w+', encoding="utf-8") as f:
-    f.write(xml.decode("utf-8"))
+import pickle
 
 
 
 
-config = configparser.ConfigParser()
+def myJson2xml():
+    datajs = None
+
+    with open("project/usingstdlibs/input.json", 'r', encoding="utf-8") as f:
+        datajs = json.loads("".join(f.readlines()))
+
+
+    with open("project/usingstdlibs/bin.pkl", 'wb+') as f:
+        pickle.dump(datajs, f)
+
+    with open("project/usingstdlibs/bin.pkl", "rb") as f:
+        data = pickle.load(f)
+
+
+    xml = dicttoxml(data, attr_type=True)
+
+    with open("project/usingstdlibs/output.xml", 'w+', encoding="utf-8") as f:
+        f.write(xml.decode("utf-8"))
 
 def convertJsonToIni(jsonData, config=None, parentSection=None):
     if config is None:
@@ -44,8 +52,30 @@ def convertJsonToIni(jsonData, config=None, parentSection=None):
     
     return config
 
+def myJson2ini():
+    datajs = None
 
-config = convertJsonToIni(data)
-with open("project/usingstdlibs/output.ini", "w+", encoding="utf-8") as f:
-    config.write(f)
+    with open("project/usingstdlibs/input.json", 'r', encoding="utf-8") as f:
+        datajs = json.loads("".join(f.readlines()))
+
+    with open("project/usingstdlibs/bin2.pkl", 'wb+') as f:
+        pickle.dump(datajs, f)
+
+    with open("project/usingstdlibs/bin2.pkl", "rb") as f:
+        data = pickle.load(f)
+        
+    config = configparser.ConfigParser()
+    config = convertJsonToIni(data)
+    with open("project/usingstdlibs/output.ini", "w+", encoding="utf-8") as f:
+        config.write(f)
+
+
+
+
+
+
+
+myJson2xml()
+myJson2ini()
+
 

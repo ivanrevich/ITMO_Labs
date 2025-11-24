@@ -10,6 +10,8 @@ from common.deserializer import Deserializer
 import json
 from dicttoxml import dicttoxml
 import configparser
+import pickle
+
 
 
 def myini():
@@ -35,6 +37,7 @@ def myini():
 
 def myxml():
     a = time.process_time_ns()
+
     tokenizer = JSONTokenizer("project\input.json")
     tokens = tokenizer.tokenize()
 
@@ -56,12 +59,21 @@ def myxml():
 
 def nomyxml():
     a = time.process_time_ns()
-    data = None
+    datajs = None
+
     with open("project/input.json", 'r', encoding="utf-8") as f:
-        data = json.loads("".join(f.readlines()))
+        datajs = json.loads("".join(f.readlines()))
+
+
+    with open("project/bin.pkl", 'wb+') as f:
+        pickle.dump(datajs, f)
+
+    with open("project/bin.pkl", "rb") as f:
+        data = pickle.load(f)
+
 
     xml = dicttoxml(data, attr_type=True)
-    
+
     return time.process_time_ns()-a
 
 
@@ -95,24 +107,39 @@ def convertJsonToIni(jsonData, config=None, parentSection=None):
 
 def nomyini():
     a = time.process_time_ns()
-    config = configparser.ConfigParser()
-    data = None
+    datajs = None
+
     with open("project/input.json", 'r', encoding="utf-8") as f:
-        data = json.loads("".join(f.readlines()))
+        datajs = json.loads("".join(f.readlines()))
+
+    with open("project/bin2.pkl", 'wb+') as f:
+        pickle.dump(datajs, f)
+
+    with open("project/bin2.pkl", "rb") as f:
+        data = pickle.load(f)
+        
+    config = configparser.ConfigParser()
     config = convertJsonToIni(data)
     return time.process_time_ns()-a
 
 
+import gc
 
-my_ini_time_ns = sum([myini() for i in range(100)])//100
 my_xml_time_ns = sum([myxml() for i in range(100)])//100
+gc.collect()
+my_ini_time_ns = sum([myini() for i in range(100)])//100
+gc.collect()
 
-
+gc.collect()
 nomy_ini_time_ns = sum([nomyini() for i in range(100)])//100
+gc.collect()
 nomy_xml_time_ns = sum([nomyxml() for i in range(100)])//100
+gc.collect()
 
 print("My ini time:", my_ini_time_ns, "ns")
 print("Not my ini time:", nomy_ini_time_ns, "ns")
+print(my_ini_time_ns/nomy_ini_time_ns)
 print()
 print("My xml time:", my_xml_time_ns, "ns")
 print("No my xml time:", nomy_xml_time_ns, "ns")
+print(my_xml_time_ns/nomy_xml_time_ns)
