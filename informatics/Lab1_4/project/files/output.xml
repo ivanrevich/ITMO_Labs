@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schedule>
+	<wednesday>
+		<time>11:30-13:00</time>
+		<group>ИНФОРМ КСиТ 2</group>
+		<place>1216/0 (усл) ауд. ул.Ломоносова, д.9, лит. М</place>
+		<subject>Информатика (Лек) : Актовый зал</subject>
+		<format>Очно - дистанционный</format>
+	</wednesday>
+	<wednesday>
+		<abc>0</abc>
+		<abc2>1</abc2>
+		<abc3>None</abc3>
+		<abc4>1.23e-09</abc4>
+		<abc5>1.2333334</abc5>
+		<abc6>15</abc6>
+		<time>11:30-13:00</time>
+		<group>ИНФОРМ СиППО 1</group>
+		<place>1216/0 (усл) ауд. ул.Ломоносова, д.9, лит. М</place>
+		<subject>Информатика (Лек) : Актовый зал</subject>
+		<format>Очно - дистанционный</format>
+	</wednesday>
+	<saturday>
+		<time>8:10-9:40</time>
+		<group>PRLCOMP 1</group>
+		<place>1333 ауд. Кронверкский пр., д.49, лит.А</place>
+		<subject>Parallel Computing / Параллельные вычисления (Лек)</subject>
+		<format>Очно - дистанционный</format>
+	</saturday>
+	<saturday>
+		<time>9:50-11:20</time>
+		<group>PRLCOMP 1.1</group>
+		<place>1333 ауд. Кронверкский пр., д.49, лит.А</place>
+		<subject>Parallel Computing / Параллельные вычисления (Лек)</subject>
+		<format>Очно - дистанционный</format>
+	</saturday>
+	<saturday>
+		<time>11:30-13:00</time>
+		<group>ИНФОРМ (Р3106) 1.1</group>
+		<place>1333 ауд. Кронверкский пр., д.49, лит.А</place>
+		<subject>Информатика (Лаб)</subject>
+		<format>Очно - дистанционный</format>
+	</saturday>
+	<saturday>
+		<time>11:30-13:00</time>
+		<group>ИНФОРМ (Р3107) 1.2</group>
+		<place>1333 ауд. Кронверкский пр., д.49, лит.А</place>
+		<subject>Информатика (Лаб)</subject>
+		<format>Очно - дистанционный</format>
+	</saturday>
+	<saturday>
+		<time>13:30-15:00</time>
+		<group>ИНФОРМ (Р3106) 1.1</group>
+		<place>1333 ауд. Кронверкский пр., д.49, лит.А</place>
+		<subject>Информатика (Лаб)</subject>
+		<format>Очно - дистанционный</format>
+	</saturday>
+	<saturday>
+		<time>13:30-15:00</time>
+		<group>ИНФОРМ (Р3107) 1.2</group>
+		<place>1333 ауд. Кронверкский пр., д.49, лит.А</place>
+		<subject>Информатика (Лаб)</subject>
+		<format>Очно - дистанционный</format>
+	</saturday>
+</schedule>
