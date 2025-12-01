@@ -5,6 +5,8 @@ from jsoncode.parser import JSONParser
 from INI.INIgenerator import INIGenerator
 from XML.XMLgenerator import XMLGenerator
 
+import gc
+
 from common.serializer import Serializer
 from common.deserializer import Deserializer
 import json
@@ -122,8 +124,6 @@ def nomyini():
     config = convertJsonToIni(data)
     return time.process_time_ns()-a
 
-
-import gc
 
 my_xml_time_ns = sum([myxml() for i in range(100)])//100
 gc.collect()
