@@ -6,4 +6,10 @@ public abstract class NatureObject extends Thing {
     protected NatureObject(String title) {
         super(title);
     }
+
+    @Override
+    public String toString() {
+        return super.title;
+    }
+
 }

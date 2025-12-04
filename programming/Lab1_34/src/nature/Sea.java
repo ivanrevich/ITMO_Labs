@@ -1,7 +1,15 @@
 package nature;
 
 public class Sea extends NatureObject{
-    protected Sea(String title) {
-        super(title);
+
+    public Sea() {
+        super("море");
     }
+
+
+    @Override
+    public String toString() {
+        return super.title;
+    }
+
 }

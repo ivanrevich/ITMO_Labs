@@ -1,9 +1,36 @@
 package things.buildings;
 
+import things.Thing;
+
 public class Castle extends Building{
-    Door[] doors;
-    Tower[] towers;
-    Wall[] walls;
+    private Door[] doors;
+    private Tower[] towers;
+    private Wall[] walls;
+
+
+    public Door[] getDoors() {
+        return doors;
+    }
+
+    public void setDoors(Door[] doors) {
+        this.doors = doors;
+    }
+
+    public Tower[] getTowers() {
+        return towers;
+    }
+
+    public void setTowers(Tower[] towers) {
+        this.towers = towers;
+    }
+
+    public Wall[] getWalls() {
+        return walls;
+    }
+
+    public void setWalls(Wall[] walls) {
+        this.walls = walls;
+    }
 
     public Castle(String title, Door[] doors, Tower[] towers, Wall[] walls) {
         super(title);
@@ -12,10 +39,9 @@ public class Castle extends Building{
         this.walls = walls;
     }
 
-
     @Override
     public String toString() {
-        return super.toString();
+        return super.title;
     }
 
     @Override

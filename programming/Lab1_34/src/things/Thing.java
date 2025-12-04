@@ -17,4 +17,6 @@ public abstract class Thing {
         state = ThingState.MISAPPREHENDED;
         System.out.println(title+" исчезло");
     }
+
+
 }

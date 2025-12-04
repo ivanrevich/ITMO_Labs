@@ -1,13 +1,13 @@
 package things.buildings;
 
 public class Wall extends Building{
-    protected Wall(String title) {
-        super(title);
+    protected Wall() {
+        super("стена");
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return super.title;
     }
 
     @Override
