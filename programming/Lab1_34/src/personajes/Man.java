@@ -13,7 +13,7 @@ public abstract class Man implements BaseMove{
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -21,7 +21,12 @@ public abstract class Man implements BaseMove{
         return mood;
     }
 
-    public void setMood(ManMood mood) {
+    private void setMood(ManMood mood) {
         this.mood = mood;
+    }
+
+    public void randomUpdateMood(){
+        setMood(ManMood.randomMood());
+        System.out.println(name+" вдруг " +this.getMood());
     }
 }

@@ -4,20 +4,39 @@ import things.Thing;
 import things.weapons.Helmet;
 import things.weapons.Spear;
 
+import java.util.Random;
+
 public class Personage extends Man{
     private ManJob manJob;
-    private Thing[] ownThings;/// don't work
+    private Helmet helmet;
+    private Spear spear;
 
-    public Personage(String name, ManJob manJob) {
-        super(name, ManMood.randomMood());
+    public Personage(String name, ManJob manJob, ManMood mood) {
+        super(name, mood);
         this.manJob = manJob;
         if(manJob==ManJob.GUARDER){
-            ownThings = new Thing[]{new Helmet(), new Spear()}
+            helmet = new Helmet();
+            spear = new Spear();
         }
     }
 
+    public Personage() {
+        Random random = new Random();
+        String[] names = {"Ганс", "Чербурашка", "Мальвина", "Незнайка", "Аркадий", "Ибрагим", "Василий"};
+        super(names[random.nextInt(0, names.length)], ManMood.randomMood());
+        this.manJob=ManJob.random();
+    }
+
     public void contact(Man man){
-        System.out.println();
+        /// HINGE SOUND AND DOORS
+        System.out.println(man.getName()+" увидел "+getMood()+" "+manJob.toString()+" которого звали "+this.getName());
+        if(helmet!=null){
+            System.out.println("У него был "+ helmet);
+        }
+        if(spear!=null){
+            System.out.println("У него было "+ spear);
+        }
+        super.randomUpdateMood();
     }
 
     public ManJob getManJob() {

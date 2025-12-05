@@ -4,10 +4,19 @@ import things.Sound;
 import things.Thing;
 
 public class Hinge extends Thing {
-    Sound sound;
+    private Sound sound;
 
-    public Hinge(String title) {
-        super(title);
+    public Hinge() {
+        super("петля");
+        sound = Sound.random();
+    }
+
+    public void playSound(){
+        System.out.println(title+" издала "+sound.toString());
+    }
+
+    public Sound getSound() {
+        return sound;
     }
 
 

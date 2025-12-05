@@ -36,10 +36,10 @@ public class World {
         hero = new MainHero("Нильс");
 
         //// GENERATING PERSONAGES
-        int countOfPersonages =  (int) (Math.random() * 20);
+        int countOfPersonages =  1+(int) (Math.random() * 5);
         personages = new Personage[countOfPersonages];
         for(int i = 0; i<countOfPersonages; i++){
-            personages[i] = new Personage("Name "+ i, ManJob.random());
+            personages[i] = new Personage();
         }
         //// ADD IT TO WORLD OBJECTS
         AllThings.add(castle);
@@ -51,12 +51,16 @@ public class World {
 
     public void PlayStory() {
         Random random = new Random();
-        while (hero.seenThings.size() != AllThings.size()) {
-            Personage pers = personages[random.nextInt(personages.length)];
-            Thing th = AllThings.get(random.nextInt(AllThings.size()));
+        while (hero.seenThings.size() != AllThings.size() || hero.seenPersons.size()!=personages.length) {
+            Personage pers = personages[random.nextInt(0, personages.length)];
+            Thing th = AllThings.get(random.nextInt(0, AllThings.size()));
             if (!hero.seenThings.contains(th)) {
                 if (random.nextBoolean() && th instanceof NatureObject) th.changeVisibleState();
                 hero.see(th);
+                if (random.nextBoolean() && th instanceof Door) {
+                    ((Door) th).getDoorState();
+                    ((Door) th).tryToOpen();
+                }
                 if (random.nextInt(0, 10) == 5) {
                     hero.think("Может, я все-таки сплю?");
                     hero.fastOpenCloseEyes();
@@ -67,9 +71,11 @@ public class World {
                     }
                     hero.see(th);
                 }
-                if (!hero.seenPersons.contains(pers)) {
-                    pers.contact(hero);
-                }
+
+            }
+            if (!hero.seenPersons.contains(pers)) {
+                pers.contact(hero);
+                hero.seenPersons.add(pers);
             }
         }
     }

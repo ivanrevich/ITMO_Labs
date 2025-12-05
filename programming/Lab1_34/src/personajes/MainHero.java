@@ -12,13 +12,8 @@ public class MainHero extends Man implements ExtendedMove{
 
     private Random random = new Random();
     public MainHero(String name){
-        super(name, ManMood.BORN);
+        super(name, ManMood.randomMood());
     }
-    @Override
-    public void headUp() {
-        System.out.println(super.getName()+" поднял голову");
-    }
-
     @Override
     public void think(String thought) {
         System.out.println("'"+thought+"' - подумал " + super.getName());
