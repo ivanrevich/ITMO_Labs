@@ -2,41 +2,49 @@ package things.buildings;
 
 import things.Thing;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Castle extends Building{
     private Door[] doors;
     private Tower[] towers;
     private Wall[] walls;
 
+    public Castle() {
+        super("замок", Material.random());
+        Random random = new Random();
 
-    public Door[] getDoors() {
-        return doors;
+        doors = new Door[random.nextInt(1, 5)];
+        for(int i=0; i<doors.length; i++){
+            doors[i] = new Door("Дверь "+i, Material.random());
+        }
+
+        towers = new Tower[random.nextInt(1, 5)];
+        for(int i=0; i<towers.length; i++){
+            towers[i] = new Tower("Башня "+i, Material.random());
+        }
+
+        walls = new Wall[random.nextInt(1, 5)];
+        for(int i=0; i<walls.length; i++){
+            walls[i] = new Wall("стена "+i, Material.random());
+        }
+
     }
 
-    public void setDoors(Door[] doors) {
-        this.doors = doors;
-    }
 
-    public Tower[] getTowers() {
-        return towers;
-    }
+    public Thing[] getAllConstructions(){
+        ArrayList<Thing> alls= new ArrayList<Thing>();
 
-    public void setTowers(Tower[] towers) {
-        this.towers = towers;
-    }
-
-    public Wall[] getWalls() {
-        return walls;
-    }
-
-    public void setWalls(Wall[] walls) {
-        this.walls = walls;
-    }
-
-    public Castle(String title, Door[] doors, Tower[] towers, Wall[] walls) {
-        super(title);
-        this.doors = doors;
-        this.towers = towers;
-        this.walls = walls;
+        for(Wall w: walls){
+            alls.add(w);
+        }
+        for(Tower t: towers){
+            alls.add(t);
+        }
+        for(Door d: doors){
+            alls.add(d);
+        }
+        return alls.toArray(Thing[]::new);
     }
 
     @Override

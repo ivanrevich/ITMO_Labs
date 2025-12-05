@@ -1,8 +1,8 @@
 package things.buildings;
 
 public class Tower extends Building{
-    protected Tower(String title) {
-        super(title);
+    protected Tower(String title, Material material) {
+        super(title, material);
     }
 
     @Override

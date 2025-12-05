@@ -1,8 +1,8 @@
 package things.buildings;
 
 public class Wall extends Building{
-    protected Wall() {
-        super("стена");
+    protected Wall(String name, Material material) {
+        super(name, Material.random());
     }
 
     @Override

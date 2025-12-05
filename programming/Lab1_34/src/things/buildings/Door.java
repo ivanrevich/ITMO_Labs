@@ -2,8 +2,8 @@ package things.buildings;
 
 public class Door extends Building{
     Hinge hinge;
-    protected Door(String title) {
-        super(title);
+    protected Door(String title, Material material) {
+        super(title, material);
     }
 
 

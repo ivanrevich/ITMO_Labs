@@ -3,14 +3,16 @@ package things.buildings;
 import things.Thing;
 
 public abstract class Building extends Thing {
-    protected Building(String title) {
+    private Material material;
+    protected Building(String title, Material material) {
         super(title);
+        this.material = material;
     }
 
 
     @Override
     public String toString() {
-        return super.toString();
+        return title + " из "+material;
     }
 
     @Override

@@ -13,12 +13,10 @@ public enum ManMood {
     DIE,
     BORN,
     HUNGRY;
-
-    private static final List<ManMood> VALUES = List.of(values());
-    private static final int SIZE = VALUES.size();
     private static final Random RANDOM = new Random();
+    private static final ManMood[] MOODS = values();
 
-    public static ManMood randomMood()  {
-        return VALUES.get(RANDOM.nextInt(SIZE));
+    public static ManMood randomMood() {
+        return MOODS[RANDOM.nextInt(MOODS.length)];
     }
 }
